@@ -1,0 +1,47 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: Blog Hosting
+
+Parameters:
+  DomainName:
+    Description: Domain name of website
+    Type: String
+    Default: stephaniekoerlin
+
+  Region:
+    Description: Default AWS region used
+    Default: us-east-1
+
+  Profile:
+    Description: Profile used for permissions
+    Default: BlogTF
+
+  DelegationSet:
+    Description: Delegation set used for domain hosted zone
+    Default:
+
+  VPCCidr:
+    Description: Cidr block for my VPC
+    Default: 10.8.0.0/16
+
+  Cidrs:
+    Description: Cidr blocks for security groups
+    Type: Map
+    Default: {
+      public1  = "10.8.1.0/24"
+      public2  = "10.8.2.0/24"
+      private1 = "10.8.3.0/24"
+      private2 = "10.8.4.0/24"
+      db1      = "10.8.5.0/24"
+      db2      = "10.8.6.0/24"
+      db3      = "10.8.7.0/24"
+    }
+
+  LocalIP:
+    Description: IP for my local computer for SSH
+    Default:
+
+
+Resources:
+
+

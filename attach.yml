@@ -1,0 +1,22 @@
+#Assumptions: drive to be mounted is called sdg
+- name: format-mount-drive
+  hosts: blog_ip
+  remote_user: bitnami
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: create ext4 filesystem on /dev/xvdg
+      filesystem:
+        fstype: ext4
+        dev: /dev/xvdg
+        force: no
+    - name: make data directory
+      file:
+        path: /data
+        state: directory
+    - name: mount volume at data
+      mount:
+        path: /data
+        src: /dev/xvdg
+        fstype: ext4
+        state: mounted

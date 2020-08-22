@@ -1,2 +1,2 @@
 # Blog
-Repo for how I host my blog.
+Repo for hosting my blog using Docker and Ghost
